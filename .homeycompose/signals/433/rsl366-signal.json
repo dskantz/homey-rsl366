@@ -1,0 +1,13 @@
+{
+  "sof": [],
+  "eof": [390, 13260],
+  "words": [
+    [390, 1170, 1170, 390],
+    [390, 1170, 390, 1170]
+  ],
+  "interval": 10000,
+  "sensitivity": 0.5,
+  "repetitions": 20,
+  "minimalLength": 12,
+  "maximalLength": 12
+}

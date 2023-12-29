@@ -1,0 +1,99 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.skantz.rsl366",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#FF0000",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "RSL366"
+  },
+  "description": {
+    "en": "Adds support for older style switches Rising Sun RSL366R, Conrad RSL366."
+  },
+  "category": [
+    "appliances",
+    "lights"
+  ],
+  "tags": {
+    "en": [
+      "rsl366",
+      "risingsun",
+      "conrad"
+    ]
+  },
+  "permissions": [
+    "homey:wireless:433"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png"
+  },
+  "author": {
+    "name": "Dennis Skantz"
+  },
+  "source": "https://github.com/dskantz/homey-rsl366",
+  "bugs": {
+    "url": "https://github.com/dskantz/homey-rsl366/issues"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "RSL366R"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "rf433"
+      ],
+      "images": {
+        "small": "/drivers/rsl366r/assets/images/small.png",
+        "large": "/drivers/rsl366r/assets/images/large.png"
+      },
+      "pair": [
+        {
+          "id": "receiver_add"
+        }
+      ],
+      "id": "rsl366r"
+    }
+  ],
+  "signals": {
+    "433": {
+      "rsl366-signal": {
+        "sof": [],
+        "eof": [
+          390,
+          13260
+        ],
+        "words": [
+          [
+            390,
+            1170,
+            1170,
+            390
+          ],
+          [
+            390,
+            1170,
+            390,
+            1170
+          ]
+        ],
+        "interval": 10000,
+        "sensitivity": 0.5,
+        "repetitions": 20,
+        "minimalLength": 12,
+        "maximalLength": 12
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<header class="homey-header">
+  <h1 class="homey-title" data-i18n="settings.title"></h1>
+  <p class="homey-subtitle" data-i18n="settings.subtitle"></p>
+</header>
+
+<form class="homey-form">
+  <fieldset class="homey-form-fieldset">
+    <legend class="homey-form-legend">Name</legend>
+    <label class="homey-form-label" for="receiver-name">Name</label>
+    <input class="homey-form-input" id="receiver-name" type="text" value="" />
+  </fieldset>
+
+  <fieldset class="homey-form-fieldset">
+    <legend class="homey-form-legend">Device address</legend>
+
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="receiver-houseCode"
+        >House Code</label
+      >
+      <select
+        class="homey-form-select"
+        name="receiver-houseCode"
+        id="receiver-houseCode"
+      >
+        <option value="1">I</option>
+        <option value="2">II</option>
+        <option value="3">III</option>
+        <option value="4">IV</option>
+      </select>
+    </div>
+    <div class="homey-form-group">
+      <label class="homey-form-label" for="receiver-unitCode">Unit Code</label>
+      <select
+        class="homey-form-select"
+        name="receiver-unitCode"
+        id="receiver-unitCode"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </div>
+  </fieldset>
+
+  <button
+    class="homey-button-primary"
+    id="receiver-add-create"
+    name="receiver-add-create"
+  >
+    Pair Device
+  </button>
+</form>
+
+<script type="text/javascript">
+  (function () {
+    const $create = document.getElementById("receiver-add-create");
+    const $houseCode = document.getElementById("receiver-houseCode");
+    const $unitCode = document.getElementById("receiver-unitCode");
+    const $name = document.getElementById("receiver-name");
+
+    let creatingDevice = false;
+
+    Homey.getOptions((err, options) => {
+      if (err) return Homey.error(err);
+      if (options && options.instruction)
+        $instruction.innerHTML = Homey.__(options.instruction);
+    });
+
+    $create.addEventListener("click", (e) => {
+      if (creatingDevice) return;
+      creatingDevice = true;
+
+      let device = {
+        name: $name.value,
+        data: {
+          id: "rsl-" + $houseCode.value + "-" + $unitCode.value,
+          houseCode: Number.parseInt($houseCode.value),
+          unitCode: Number.parseInt($unitCode.value),
+        },
+      };
+
+      Homey.createDevice(device, (err) => {
+        if (err) {
+          creatingDevice = false;
+          return Homey.alert(err);
+        }
+      });
+      return Homey.done();
+    });
+  })();
+</script>
