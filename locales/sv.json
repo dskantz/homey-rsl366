@@ -1,0 +1,10 @@
+{
+  "pair": {
+    "deviceSettings": "Enhetsinställningar",
+    "name": "Namn",
+    "houseCode": "Huskod",
+    "unitCode": "Enhetskod",
+    "buttonText": "Lägg till enhet",
+    "errorDuplicate": "Det finns redan en enhet med den kombinationen av Huskod och Enhetskod."
+  }
+}

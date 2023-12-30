@@ -1,1 +1,10 @@
-{}
+{
+  "pair": {
+    "deviceSettings": "Device Settings",
+    "name": "Name",
+    "houseCode": "House Code",
+    "unitCode": "Unit Code",
+    "buttonText": "Add Device",
+    "errorDuplicate": "There is already a device with that House Code and Unit Code combination."
+  }
+}

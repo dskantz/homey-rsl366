@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.skantz.rsl366",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#FF0000",
@@ -12,7 +12,8 @@
     "en": "RSL366"
   },
   "description": {
-    "en": "Adds support for older style switches Rising Sun RSL366R, Conrad RSL366."
+    "en": "Adds support for older style switches Rising Sun RSL366R, Conrad RSL366.",
+    "sv": "Lägger till stöd för äldre typer av kontakter Rising Sun RSL366R, Conrad RSL366."
   },
   "category": [
     "appliances",

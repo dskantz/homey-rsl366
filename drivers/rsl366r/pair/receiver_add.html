@@ -5,18 +5,22 @@
 
 <form class="homey-form">
   <fieldset class="homey-form-fieldset">
-    <legend class="homey-form-legend">Name</legend>
-    <label class="homey-form-label" for="receiver-name">Name</label>
-    <input class="homey-form-input" id="receiver-name" type="text" value="" />
-  </fieldset>
-
-  <fieldset class="homey-form-fieldset">
-    <legend class="homey-form-legend">Device address</legend>
+    <legend class="homey-form-legend" data-i18n="pair.deviceSettings"></legend>
+    <div class="homey-form-group">
+      <label
+        class="homey-form-label"
+        for="receiver-name"
+        data-i18n="pair.name"
+      ></label>
+      <input class="homey-form-input" id="receiver-name" type="text" value="" />
+    </div>
 
     <div class="homey-form-group">
-      <label class="homey-form-label" for="receiver-houseCode"
-        >House Code</label
-      >
+      <label
+        class="homey-form-label"
+        for="receiver-houseCode"
+        data-i18n="pair.houseCode"
+      ></label>
       <select
         class="homey-form-select"
         name="receiver-houseCode"
@@ -29,7 +33,11 @@
       </select>
     </div>
     <div class="homey-form-group">
-      <label class="homey-form-label" for="receiver-unitCode">Unit Code</label>
+      <label
+        class="homey-form-label"
+        for="receiver-unitCode"
+        data-i18n="pair.unitCode"
+      ></label>
       <select
         class="homey-form-select"
         name="receiver-unitCode"
@@ -42,16 +50,15 @@
       </select>
     </div>
   </fieldset>
-
+</form>
+<div class="homey-form-group">
   <button
-    class="homey-button-primary"
+    class="homey-button-primary-full"
     id="receiver-add-create"
     name="receiver-add-create"
-  >
-    Pair Device
-  </button>
-</form>
-
+    data-i18n="pair.buttonText"
+  ></button>
+</div>
 <script type="text/javascript">
   (function () {
     const $create = document.getElementById("receiver-add-create");
@@ -61,15 +68,10 @@
 
     let creatingDevice = false;
 
-    Homey.getOptions((err, options) => {
-      if (err) return Homey.error(err);
-      if (options && options.instruction)
-        $instruction.innerHTML = Homey.__(options.instruction);
-    });
-
     $create.addEventListener("click", (e) => {
       if (creatingDevice) return;
       creatingDevice = true;
+      $create.classList.add("isLoading");
 
       let device = {
         name: $name.value,
@@ -80,13 +82,16 @@
         },
       };
 
-      Homey.createDevice(device, (err) => {
-        if (err) {
+      Homey.createDevice(device)
+        .then(function () {
+          return Homey.done();
+        })
+        .catch(function (err) {
+          $create.classList.remove("isLoading");
           creatingDevice = false;
-          return Homey.alert(err);
-        }
-      });
-      return Homey.done();
+          return Homey.Alert(Homey.__("pair.errorDuplicate"));
+        });
     });
   })();
+  //# sourceURL=rsl366-pairing.js
 </script>
