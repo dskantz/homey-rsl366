@@ -1,6 +1,6 @@
 {
   "id": "com.skantz.rsl366",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#FF0000",
@@ -11,8 +11,8 @@
     "en": "RSL366"
   },
   "description": {
-    "en": "Make your old switches smart again.",
-    "sv": "Gör dina gamla fjärrströmbrytare smarta igen."
+    "en": "Make your old switches smart again",
+    "sv": "Gör dina gamla fjärrströmbrytare smarta igen"
   },
   "category": [
     "appliances",
