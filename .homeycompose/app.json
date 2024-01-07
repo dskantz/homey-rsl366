@@ -4,30 +4,19 @@
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#FF0000",
-  "platforms": [
-    "local"
-  ],
+  "platforms": ["local"],
   "name": {
     "en": "RSL366"
   },
   "description": {
-    "en": "Adds support for older style switches Rising Sun RSL366R, Conrad RSL366.",
-    "sv": "Lägger till stöd för äldre typer av kontakter Rising Sun RSL366R, Conrad RSL366."
+    "en": "Make your old switches smart again.",
+    "sv": "Gör dina gamla fjärrströmbrytare smarta igen."
   },
-  "category": [
-    "appliances",
-    "lights"
-  ],
+  "category": ["appliances", "lights"],
   "tags": {
-    "en": [
-      "rsl366",
-      "risingsun",
-      "conrad"
-    ]
+    "en": ["rsl366", "risingsun", "conrad"]
   },
-  "permissions": [
-    "homey:wireless:433"
-  ],
+  "permissions": ["homey:wireless:433"],
   "images": {
     "small": "/assets/images/small.png",
     "large": "/assets/images/large.png"
